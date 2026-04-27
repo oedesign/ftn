@@ -1,13 +1,15 @@
-import PageContainer from './components/layout/PageContainer';
 import HeroCard from './components/common/HeroCard';
+import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <PageContainer>
-      <HomePage />
-      <HeroCard />
-    </PageContainer>
+    <Layout activePage="Home">
+      <div className="space-y-8">
+        <HomePage />
+        <HeroCard />
+      </div>
+    </Layout>
   );
 }
 
