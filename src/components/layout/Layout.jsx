@@ -2,6 +2,11 @@ import Footer from './Footer';
 import Header from './Header';
 import SecondaryNav from './SecondaryNav';
 
+function Layout({ children }) {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <Header />
+      <SecondaryNav />
 function Layout({ children, activePage = 'Home' }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
