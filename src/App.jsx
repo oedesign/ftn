@@ -39,7 +39,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
-
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
