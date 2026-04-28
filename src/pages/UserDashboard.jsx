@@ -40,6 +40,33 @@ const overviewStats = [
   { label: 'Market Orders', value: '16' }
 ];
 
+const graduationRewards = [
+  {
+    trainingName: 'Web Development Training',
+    score: 87,
+    graduationStatus: 'Graduated',
+    certificateStatus: 'Issued',
+    rewardAmount: '150,000 FTN',
+    rewardStatus: 'Credited'
+  },
+  {
+    trainingName: 'Solar Installation Basics',
+    score: 76,
+    graduationStatus: 'Graduated',
+    certificateStatus: 'Issued',
+    rewardAmount: '100,000 FTN',
+    rewardStatus: 'Credited'
+  },
+  {
+    trainingName: 'Data Entry & Office Productivity',
+    score: 92,
+    graduationStatus: 'Graduated',
+    certificateStatus: 'Issued',
+    rewardAmount: '200,000 FTN',
+    rewardStatus: 'Credited'
+  }
+];
+
 function UserDashboard() {
   return (
     <section className="overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-sm">
@@ -54,7 +81,9 @@ function UserDashboard() {
 
             <div className="pb-2">
               <h1 className="text-2xl font-bold text-slate-900">{profile.fullName}</h1>
-              <p className="text-sm text-slate-600">{profile.username} · {profile.memberId}</p>
+              <p className="text-sm text-slate-600">
+                {profile.username} · {profile.memberId}
+              </p>
             </div>
           </div>
 
@@ -117,6 +146,55 @@ function UserDashboard() {
                 <p className="mt-2 text-2xl font-bold text-emerald-700">{item.value}</p>
               </article>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold text-slate-900">Skills Graduation Rewards</h2>
+          <p className="mt-1 text-sm text-slate-600">Reward rules for graduating trainees:</p>
+
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+            <li>70 - 79 points = 100,000 FTN</li>
+            <li>80 - 89 points = 150,000 FTN</li>
+            <li>90 - 100 points = 200,000 FTN</li>
+          </ul>
+
+          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50 p-4 text-sm text-slate-700">
+            <p className="font-semibold text-slate-900">Token usage policy</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>FTN tokens are internal website credits.</li>
+              <li>Tokens cannot be withdrawn as cash.</li>
+              <li>Tokens can only be used inside Feed The Nation.</li>
+            </ul>
+          </div>
+
+          <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead className="bg-slate-100 text-slate-700">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Training name</th>
+                    <th className="px-4 py-3 font-semibold">Score</th>
+                    <th className="px-4 py-3 font-semibold">Graduation status</th>
+                    <th className="px-4 py-3 font-semibold">Certificate status</th>
+                    <th className="px-4 py-3 font-semibold">Reward amount</th>
+                    <th className="px-4 py-3 font-semibold">Reward status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                  {graduationRewards.map((reward) => (
+                    <tr key={reward.trainingName}>
+                      <td className="px-4 py-3">{reward.trainingName}</td>
+                      <td className="px-4 py-3">{reward.score} points</td>
+                      <td className="px-4 py-3">{reward.graduationStatus}</td>
+                      <td className="px-4 py-3">{reward.certificateStatus}</td>
+                      <td className="px-4 py-3">{reward.rewardAmount}</td>
+                      <td className="px-4 py-3">{reward.rewardStatus}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
